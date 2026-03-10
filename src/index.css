@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* GLOBAL RESET */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Poppins',sans-serif;
+  background-color:#0A0F0B;
+  color:white;
+  overflow-x:hidden;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+
+
+/* ========================= */
+/* NETWORK BACKGROUND MOTION */
+/* ========================= */
+
+@keyframes networkMove {
+
+  0%{
+    transform:translateX(0px) translateY(0px);
+  }
+
+  50%{
+    transform:translateX(-60px) translateY(-15px);
+  }
+
+  100%{
+    transform:translateX(0px) translateY(0px);
+  }
+
+}
+
+.animate-network{
+  animation:networkMove 20s ease-in-out infinite;
+}
+
+
+
+/* ========================= */
+/* NETWORK NODE GLOW */
+/* ========================= */
+
+.network-nodes circle{
+  filter:drop-shadow(0 0 8px #77B900);
+}
+
+.network-lines line{
+  opacity:0.7;
+  stroke-dasharray:6 6;
+}
+
+
+
+/* ========================= */
+/* GREEN GLOW EFFECT */
+/* ========================= */
+
+.glow-green{
+  box-shadow:
+  0 0 10px rgba(119,185,0,0.6),
+  0 0 20px rgba(119,185,0,0.4),
+  0 0 30px rgba(119,185,0,0.2);
+}
+
+
+
+/* ========================= */
+/* HERO GRADIENT */
+/* ========================= */
+
+.hero-gradient{
+  background:linear-gradient(
+    180deg,
+    rgba(19,24,20,0) 0%,
+    rgba(39,60,0,0.85) 100%
+  );
+}
+
+
+
+/* ========================= */
+/* DOT BACKGROUND PATTERN */
+/* ========================= */
+
+.dot-pattern{
+  background-image:radial-gradient(
+    rgba(119,185,0,0.15) 1px,
+    transparent 1px
+  );
+  background-size:20px 20px;
+}
+
+
+
+/* ========================= */
+/* DASHBOARD GREEN GLOW */
+/* ========================= */
+
+.dashboard-glow{
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  bottom:-120px;
+
+  width:1200px;
+  height:420px;
+
+  background:#77B900;
+
+  opacity:0.35;
+
+  filter:blur(180px);
+
+  border-radius:100%;
+}
+
+
+
+/* ========================= */
+/* LAPTOP FLOAT ANIMATION */
+/* ========================= */
+
+@keyframes laptopFloat{
+
+  0%{
+    transform:translateY(0px);
+  }
+
+  50%{
+    transform:translateY(-18px);
+  }
+
+  100%{
+    transform:translateY(0px);
+  }
+
+}
+
+.laptop-float{
+  animation:laptopFloat 6s ease-in-out infinite;
+}
