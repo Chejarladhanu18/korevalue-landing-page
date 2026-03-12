@@ -22,19 +22,16 @@ export default function VisibilityCard({ icon, title, description }: CardProps) 
       px-6
       "
     >
-      {/* ICON */}
       <img
         src={icon}
         alt={title}
         className="w-[60px] h-[50px] mb-6"
       />
 
-      {/* TITLE */}
       <h3 className="text-white text-[20px] lg:text-[22px] font-semibold mb-4">
         {title}
       </h3>
 
-      {/* DESCRIPTION */}
       <p className="text-[#929292] text-[14px] lg:text-[15px] leading-[26px] lg:leading-[32px]">
         {description}
       </p>

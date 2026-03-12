@@ -1,0 +1,11 @@
+{
+  "menu": [
+    "Resource",
+    "Platform",
+    "Services"
+  ],
+  "buttons": {
+    "contact": "Contact Us",
+    "login": "Login"
+  }
+}

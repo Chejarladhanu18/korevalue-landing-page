@@ -1,3 +1,5 @@
+import footer from "../../content/Footer.json";
+
 export default function KoreValueSection() {
   return (
     <section
@@ -20,18 +22,15 @@ export default function KoreValueSection() {
           />
 
           <p className="text-[#BDBDBD] text-[16px] mb-10">
-            A cost optimization platform designed for managing AI and Hybrid Infrastructure expenses.
+            {footer.tagline}
           </p>
 
           <p className="text-[#9E9E9E] text-[15px] leading-[28px] max-w-[760px] mx-auto">
-            KoreValue is an AI-powered FinOps platform designed to help organizations monitor,
-            analyze, and optimize their cloud spending. With real-time cost intelligence,
-            anomaly detection, and multi-cloud insights, we enable teams to make smarter
-            financial decisions and maximize the value of their cloud infrastructure.
+            {footer.description}
           </p>
 
           <p className="text-[#6F6F6F] text-[12px] mt-[80px]">
-            © 2026 KoreValue AI-Powered Cloud Intelligence Platform
+            {footer.copyright}
           </p>
 
         </div>
