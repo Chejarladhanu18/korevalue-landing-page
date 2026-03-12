@@ -1,4 +1,4 @@
-import infrastructure from "../../content/infrastructure.json";
+import infrastructure from "../../content/Infrastructure.json";
 
 export default function Infrastructure() {
   return (

@@ -1,5 +1,11 @@
 import VisibilityCard from "../ui/VisibilityCard"
-import visibility from "../../content/visibility.json"
+import visibility from "../../content/Visibility.json"
+
+type Card = {
+  icon: string
+  title: string
+  description: string
+}
 
 export default function VisibilitySection() {
   return (
@@ -41,7 +47,7 @@ export default function VisibilitySection() {
           "
         >
 
-          {visibility.cards.map((card, index) => (
+          {visibility.cards.map((card: Card, index: number) => (
             <VisibilityCard
               key={index}
               icon={card.icon}
