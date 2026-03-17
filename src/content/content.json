@@ -1,0 +1,76 @@
+{
+  "navbar": {
+    "menu": [
+      "Resource",
+      "Platform",
+      "Services"
+    ],
+    "buttons": {
+      "contact": "Contact Us",
+      "login": "Login"
+    }
+  },
+  "hero": {
+    "title": "A Single Solution to Manage AI and Hybrid Infrastructure costs",
+    "description": "Get end-to-end visibility, chargeback, and forecasting across AI, Cloud, SaaS, and on-prem infrastructure to control costs before they grow."
+  },
+  "infrastructure": {
+    "title": "Clear answers for Complex Infrastructure",
+    "description": "When legacy FinOps tools fail to explain rising usage, margin erosion, and AI costs KoreValue provides the clarity and control for the modern era.",
+    "footerText": "KoreValue centralizes cost data across LLMs, GPUs, SaaS tools, and private and public cloud, enabling smarter spending, stronger margins, and confident scaling."
+  },
+  "visibility": {
+    "title": "One Platform, End-to-End Visibility",
+    "description": "Track and manage the true cost of workloads across every environment with clarity.",
+    "cards": [
+      {
+        "icon": "/workload.png",
+        "title": "Track AI Workloads End-to-End",
+        "description": "Monitor the cost of every model call, agent interaction, and GPU hour while enabling detailed visibility for precise chargeback allocation."
+      },
+      {
+        "icon": "/shared-icon.png",
+        "title": "Handle Complex Shared Resources",
+        "description": "Allocate costs across Kubernetes clusters, shared databases, and multi-tenant infrastructure effortlessly with KoreValue’s intelligent allocation engine."
+      },
+      {
+        "icon": "/cloud.png",
+        "title": "Unify Multi-Cloud Cost Data",
+        "description": "Move beyond scattered reports from AWS, Azure, GCP and on-prem with a unified platform that standardizes cost data across environments."
+      },
+      {
+        "icon": "/pie-chart.svg",
+        "title": "Govern Before you Spend",
+        "description": "Implement budget protections to stop unapproved resource creation before it impacts your billing."
+      },
+      {
+        "icon": "/settings.svg",
+        "title": "Integrate into Existing Workflows",
+        "description": "Built on an API-first model, it integrates with ERP, ITSM, and BI platforms."
+      },
+      {
+        "icon": "/graph.svg",
+        "title": "Deploy in Days, not Months",
+        "description": "Integrated discovery automation and virtual tagging start working right away."
+      }
+    ]
+  },
+  "demo": {
+    "heading": "NO RISK PROOF OF VALUE",
+    "title": "Start controlling your AI and Hybrid Environment Costs.",
+    "description": "Monitor every expense across cloud, on-premise systems, AI and SaaS through a single platform. Avoid unexpected costs with real-time cost distribution, anomaly monitoring and predictive forecasting. Streamline cost management using chargebacks, spending guardrails, and AI-powered insights.",
+    "form": {
+      "title": "Request a Demo",
+      "name": "Name",
+      "email": "E-Mail",
+      "organization": "Organization Name",
+      "source": "How you Know about us?",
+      "submit": "Submit"
+    }
+  },
+  "footer": {
+    "tagline": "A cost optimization platform designed for managing AI and Hybrid Infrastructure expenses.",
+    "description": "KoreValue is an AI-powered FinOps platform designed to help organizations monitor, analyze, and optimize their cloud spending. With real-time cost intelligence, anomaly detection, and multi-cloud insights, we enable teams to make smarter financial decisions and maximize the value of their cloud infrastructure.",
+    "copyright": "© 2026 KoreValue AI-Powered Cloud Intelligence Platform"
+  }
+}

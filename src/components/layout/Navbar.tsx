@@ -1,5 +1,5 @@
 import { useState } from "react"
-import navbar from "../../content/Navbar.json"
+import content from "../../content/content.json"
 
 const Navbar = () => {
 
@@ -21,7 +21,7 @@ const Navbar = () => {
 
       <div className="hidden lg:flex items-center gap-12">
 
-        {navbar.menu.map((item,index)=>(
+        {content.navbar.menu.map((item,index)=>(
           <a
             key={index}
             className="text-[#77B900] text-[20px] font-medium hover:text-[#9fdc00] transition cursor-pointer"
@@ -31,11 +31,11 @@ const Navbar = () => {
         ))}
 
         <button className="w-[176px] h-[48px] rounded-[11px] border border-[#436900] bg-[#131814] text-[#77B900] text-[20px] font-medium flex items-center justify-center hover:bg-[#1a1f1a] transition">
-          {navbar.buttons.contact}
+          {content.navbar.buttons.contact}
         </button>
 
         <button className="w-[176px] h-[48px] rounded-[11px] bg-[#77B900] text-black text-[20px] font-medium flex items-center justify-center shadow-[0_0_23px_rgba(119,185,0,0.65)] hover:bg-[#8fd600] transition">
-          {navbar.buttons.login}
+          {content.navbar.buttons.login}
         </button>
 
       </div>
@@ -52,18 +52,18 @@ const Navbar = () => {
       {menuOpen && (
         <div className="fixed top-[90px] left-0 w-full bg-[#0F1800] flex flex-col items-center gap-6 py-8 lg:hidden border-t border-[#436900] z-[50]">
 
-          {navbar.menu.map((item,index)=>(
+          {content.navbar.menu.map((item,index)=>(
             <a key={index} className="text-[#77B900] text-lg">
               {item}
             </a>
           ))}
 
           <button className="w-[160px] h-[44px] border border-[#436900] bg-[#131814] text-[#77B900] rounded-lg">
-            {navbar.buttons.contact}
+            {content.navbar.buttons.contact}
           </button>
 
           <button className="w-[160px] h-[44px] bg-[#77B900] text-black rounded-lg">
-            {navbar.buttons.login}
+            {content.navbar.buttons.login}
           </button>
 
         </div>

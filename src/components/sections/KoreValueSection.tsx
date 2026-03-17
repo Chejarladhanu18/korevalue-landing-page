@@ -1,6 +1,7 @@
-import footer from "../../content/Footer.json";
+import content from "../../content/content.json";
 
 export default function KoreValueSection() {
+  const footer = content.footer
   return (
     <section
       className="
