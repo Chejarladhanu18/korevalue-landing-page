@@ -10,7 +10,7 @@ const ServiceCard = ({ icon, emoji, title, description }: Props) => {
     <div className="w-[290px] h-[224px] bg-[#0F1A12] border border-[#77B900]/30 rounded-[20px] flex flex-col items-center justify-center text-center">
 
       {icon ? (
-        <img src={icon} className="mb-[12px]" />
+        <img src={icon} alt={title} className="w-[32px] h-[32px] mb-[12px]" />
       ) : (
         <div className="text-[#77B900] text-[48px] mb-[12px]">
           {emoji}

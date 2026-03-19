@@ -1,24 +1,23 @@
 {
   "navbar": {
-    "menu": [
-      "Resource",
-      "Platform",
-      "Services"
-    ],
+    "menu": ["Resource", "Platform", "Services"],
     "buttons": {
       "contact": "Contact Us",
       "login": "Login"
     }
   },
+
   "hero": {
     "title": "A Single Solution to Manage AI and Hybrid Infrastructure costs",
     "description": "Get end-to-end visibility, chargeback, and forecasting across AI, Cloud, SaaS, and on-prem infrastructure to control costs before they grow."
   },
+
   "infrastructure": {
     "title": "Clear answers for Complex Infrastructure",
     "description": "When legacy FinOps tools fail to explain rising usage, margin erosion, and AI costs KoreValue provides the clarity and control for the modern era.",
     "footerText": "KoreValue centralizes cost data across LLMs, GPUs, SaaS tools, and private and public cloud, enabling smarter spending, stronger margins, and confident scaling."
   },
+
   "visibility": {
     "title": "One Platform, End-to-End Visibility",
     "description": "Track and manage the true cost of workloads across every environment with clarity.",
@@ -55,6 +54,7 @@
       }
     ]
   },
+
   "demo": {
     "heading": "NO RISK PROOF OF VALUE",
     "title": "Start controlling your AI and Hybrid Environment Costs.",
@@ -68,68 +68,79 @@
       "submit": "Submit"
     }
   },
+
   "footer": {
     "tagline": "A cost optimization platform designed for managing AI and Hybrid Infrastructure expenses.",
     "description": "KoreValue is an AI-powered FinOps platform designed to help organizations monitor, analyze, and optimize their cloud spending. With real-time cost intelligence, anomaly detection, and multi-cloud insights, we enable teams to make smarter financial decisions and maximize the value of their cloud infrastructure.",
     "copyright": "© 2026 KoreValue AI-Powered Cloud Intelligence Platform"
   },
+
   "services": [
     {
-      "emoji": "₹",
+      "iconType": "text",
+      "icon": "₹",
       "title": "Cost Analyzer",
       "description": "See exactly where every cost is being spent across clouds"
     },
     {
+      "iconType": "image",
       "icon": "/group-icon.svg",
       "title": "Category Views",
       "description": "Slice spend by teams, projects, and business categories"
     },
     {
+      "iconType": "image",
       "icon": "/k8s-icon.svg",
       "title": "K8s Cost Observability",
       "description": "Track Kubernetes spend by namespace, pod, and workload"
     },
     {
+      "iconType": "image",
       "icon": "/recommendation-icon.svg",
       "title": "Recommendations",
       "description": "Get actionable suggestions to reduce waste and optimize resources"
     },
     {
+      "iconType": "image",
       "icon": "/anomaly-icon.svg",
       "title": "Anomaly Detection",
       "description": "Spot unusual spend patterns before they become budget surprises"
     },
     {
+      "iconType": "image",
       "icon": "/reporting-icon.svg",
       "title": "Reporting",
       "description": "Build and schedule cost reports for stakeholders"
     },
     {
+      "iconType": "image",
       "icon": "/virtual-tags-icon.svg",
       "title": "Virtual Tags",
       "description": "Tag resources dynamically without changing cloud metadata"
     },
     {
+      "iconType": "image",
       "icon": "/cost-allocation-icon.svg",
       "title": "Cost Allocation",
       "description": "Allocate spend to teams, products, and business units"
     },
     {
+      "iconType": "image",
       "icon": "/unit-economics-icon.svg",
       "title": "Unit Economics",
       "description": "Understand cost per user, request, and feature usage"
     },
     {
+      "iconType": "image",
       "icon": "/forecasting-icon.svg",
       "title": "Forecasting",
       "description": "Predict future spend with historical trends"
     },
     {
+      "iconType": "image",
       "icon": "/budgeting-icon.svg",
       "title": "Budgeting",
       "description": "Set spending limits and get alerts when close to thresholds"
     }
   ]
 }
-
-   
