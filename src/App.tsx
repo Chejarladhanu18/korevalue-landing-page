@@ -1,3 +1,5 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import Navbar from "./components/layout/Navbar";
 import GlobalBackground from "./components/ui/GlobalBackground";
 
@@ -7,25 +9,32 @@ import VisibilitySection from "./components/sections/VisibilitySection";
 import DemoSection from "./components/sections/DemoSection";
 import KoreValueSection from "./components/sections/KoreValueSection";
 
+import ServicesSection from "./components/sections/ServicesSection";
+
 function App() {
   return (
-    <main className="relative min-h-screen w-full overflow-x-hidden">
-
+    <BrowserRouter>
       <GlobalBackground />
 
       <Navbar />
 
-      <Hero />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <Hero />
+              <Infrastructure />
+              <VisibilitySection />
+              <DemoSection />
+              <KoreValueSection />
+            </>
+          }
+        />
 
-      <Infrastructure />
-
-      <VisibilitySection />
-
-      <DemoSection />
-
-      <KoreValueSection />
-
-    </main>
+        <Route path="/services" element={<ServicesSection />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

@@ -72,5 +72,64 @@
     "tagline": "A cost optimization platform designed for managing AI and Hybrid Infrastructure expenses.",
     "description": "KoreValue is an AI-powered FinOps platform designed to help organizations monitor, analyze, and optimize their cloud spending. With real-time cost intelligence, anomaly detection, and multi-cloud insights, we enable teams to make smarter financial decisions and maximize the value of their cloud infrastructure.",
     "copyright": "© 2026 KoreValue AI-Powered Cloud Intelligence Platform"
-  }
+  },
+  "services": [
+    {
+      "emoji": "₹",
+      "title": "Cost Analyzer",
+      "description": "See exactly where every cost is being spent across clouds"
+    },
+    {
+      "icon": "/group-icon.svg",
+      "title": "Category Views",
+      "description": "Slice spend by teams, projects, and business categories"
+    },
+    {
+      "icon": "/k8s-icon.svg",
+      "title": "K8s Cost Observability",
+      "description": "Track Kubernetes spend by namespace, pod, and workload"
+    },
+    {
+      "icon": "/recommendation-icon.svg",
+      "title": "Recommendations",
+      "description": "Get actionable suggestions to reduce waste and optimize resources"
+    },
+    {
+      "icon": "/anomaly-icon.svg",
+      "title": "Anomaly Detection",
+      "description": "Spot unusual spend patterns before they become budget surprises"
+    },
+    {
+      "icon": "/reporting-icon.svg",
+      "title": "Reporting",
+      "description": "Build and schedule cost reports for stakeholders"
+    },
+    {
+      "icon": "/virtual-tags-icon.svg",
+      "title": "Virtual Tags",
+      "description": "Tag resources dynamically without changing cloud metadata"
+    },
+    {
+      "icon": "/cost-allocation-icon.svg",
+      "title": "Cost Allocation",
+      "description": "Allocate spend to teams, products, and business units"
+    },
+    {
+      "icon": "/unit-economics-icon.svg",
+      "title": "Unit Economics",
+      "description": "Understand cost per user, request, and feature usage"
+    },
+    {
+      "icon": "/forecasting-icon.svg",
+      "title": "Forecasting",
+      "description": "Predict future spend with historical trends"
+    },
+    {
+      "icon": "/budgeting-icon.svg",
+      "title": "Budgeting",
+      "description": "Set spending limits and get alerts when close to thresholds"
+    }
+  ]
 }
+
+   
