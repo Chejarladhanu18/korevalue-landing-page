@@ -14,26 +14,37 @@ import ServicesSection from "./components/sections/ServicesSection";
 function App() {
   return (
     <BrowserRouter>
+
       <GlobalBackground />
 
       <Navbar />
 
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <Hero />
-              <Infrastructure />
-              <VisibilitySection />
-              <DemoSection />
-              <KoreValueSection />
-            </>
-          }
-        />
+      {/* 👇 THIS FIXES YOUR PROBLEM */}
+      <div className="pt-[90px] lg:pt-[133px]">
 
-        <Route path="/services" element={<ServicesSection />} />
-      </Routes>
+        <Routes>
+
+          {/* HOME */}
+          <Route
+            path="/"
+            element={
+              <>
+                <Hero />
+                <Infrastructure />
+                <VisibilitySection />
+                <DemoSection />
+                <KoreValueSection />
+              </>
+            }
+          />
+
+          {/* SERVICES */}
+          <Route path="/services" element={<ServicesSection />} />
+
+        </Routes>
+
+      </div>
+
     </BrowserRouter>
   );
 }

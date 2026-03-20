@@ -2,7 +2,7 @@ import content from "../../content/content.json";
 import ServiceCard from "../ui/ServiceCard";
 
 type Service = {
-  iconType: string; // ✅ FIXED HERE
+  iconType: string;
   icon: string;
   title: string;
   description: string;
@@ -17,10 +17,20 @@ const ServicesSection = () => {
       <div className="w-full max-w-[1400px]">
 
         {/* TITLE */}
-        <h2 className="text-white text-[32px] sm:text-[40px] lg:text-[55px] font-semibold text-center mt-[80px] mb-[60px]">
+        <h2 className="
+          text-white 
+          text-[32px] 
+          sm:text-[40px] 
+          lg:text-[55px] 
+          font-semibold 
+          text-center 
+          mt-[40px] 
+          mb-[60px]
+        ">
           Explore Our Services
         </h2>
 
+        {/* ROWS */}
         <div className="flex flex-col gap-6">
 
           {/* ROW 1 */}
@@ -49,7 +59,7 @@ const ServicesSection = () => {
             ))}
           </div>
 
-          {/* ROW 3 */}
+          {/* ROW 3 (CENTERED) */}
           <div className="flex justify-center gap-6 flex-wrap">
             {services.slice(8, 11).map((item, index) => (
               <ServiceCard

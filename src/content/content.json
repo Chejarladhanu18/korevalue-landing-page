@@ -1,6 +1,6 @@
 {
   "navbar": {
-    "menu": ["Resource", "Platform", "Services"],
+    "menu": ["Home", "Resource", "Platform", "Services"],
     "buttons": {
       "contact": "Contact Us",
       "login": "Login"
