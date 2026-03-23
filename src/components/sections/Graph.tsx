@@ -166,7 +166,7 @@ export default function KubexChart() {
         }}
       >
         {/* Header */}
-        <div className="flex items-center justify-between mb-5">
+        <div className="flex items-center justify-between mb-2 sm:mb-3 lg:mb-5">
           <div className="flex items-center gap-2.5">
             <motion.div
               className="w-3 h-3 rounded-full"
@@ -177,19 +177,19 @@ export default function KubexChart() {
               animate={{ scale: [1, 1.25, 1] }}
               transition={{ duration: 2, repeat: Infinity }}
             />
-            <span className="font-mono font-semibold text-lg text-foreground">
+            <span className="font-mono font-semibold text-sm sm:text-base lg:text-lg text-foreground">
               KoreValue
             </span>
           </div>
 
           {/* Waste % top-right */}
           <div className="text-right">
-            <span className="text-[11px] font-mono text-muted-foreground">Waste</span>
+            <span className="text-[9px] sm:text-[10px] lg:text-[11px] font-mono text-muted-foreground">Waste</span>
             <br />
             <AnimatePresence mode="wait">
               <motion.span
                 key={wastePercent}
-                className="text-2xl font-bold font-mono"
+                className="text-lg sm:text-xl lg:text-2xl font-bold font-mono"
                 style={{ color: "hsl(var(--destructive))" }}
                 initial={{ opacity: 0, y: 4 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -202,9 +202,9 @@ export default function KubexChart() {
         </div>
 
         {/* Chart area */}
-        <div className="relative flex-1 ">
+        <div className="relative flex-1 min-h-[120px] sm:min-h-[140px] lg:min-h-0">
           {/* Y axis labels */}
-          <div className="absolute left-0 top-0 bottom-8 flex flex-col justify-between text-[11px] font-mono text-muted-foreground">
+          <div className="absolute left-0 top-0 bottom-8 flex flex-col justify-between text-[9px] sm:text-[10px] lg:text-[11px] font-mono text-muted-foreground">
             <span>100%</span>
             <span>50%</span>
             <span>0%</span>
@@ -378,7 +378,7 @@ export default function KubexChart() {
           </div>
 
           {/* Legend */}
-          <div className="flex items-center gap-6 mt-3 ml-10 text-sm font-mono">
+          <div className="flex items-center gap-3 mt-2 ml-6 text-xs sm:text-sm lg:text-sm font-mono">
             <div className="flex items-center gap-2">
               <div className="w-6 h-[3px] rounded-full" style={{ backgroundColor: COL_REQUIRED, boxShadow: `0 0 4px ${COL_REQUIRED}` }} />
               <span className="text-muted-foreground">Required</span>
@@ -391,11 +391,11 @@ export default function KubexChart() {
         </div>
 
         {/* Bottom stats bar */}
-        <div className="flex items-center gap-4 px-6 pb-4 pt-2">    
+        <div className="flex items-center gap-2 px-3 sm:px-4 lg:px-6 pb-2 pt-1 lg:pb-4 lg:pt-2">    
           <AnimatePresence mode="wait">
             <motion.div
               key={statusLabel}
-              className="px-4 py-1.5 rounded-lg text-sm font-mono font-bold whitespace-nowrap"
+              className="px-2 py-1 rounded-lg text-xs sm:text-sm font-mono font-bold whitespace-nowrap"
               style={{
                 backgroundColor: statusLabel === "Optimized"
                   ? COL_DIVIDER
@@ -418,12 +418,12 @@ export default function KubexChart() {
           </div>
 
           <div className="ml-auto text-right">
-            <span className="text-[11px] font-mono text-muted-foreground">Allocated</span>
+            <span className="text-[9px] sm:text-[10px] lg:text-[11px] font-mono text-muted-foreground">Allocated</span>
             <br />
             <AnimatePresence mode="wait">
               <motion.span
                 key={allocPercent}
-                className="text-xl font-bold font-mono"
+                className="text-sm sm:text-lg lg:text-xl font-bold font-mono"
                 style={{ color: COL_ALLOCATED }}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -434,12 +434,12 @@ export default function KubexChart() {
           </div>
 
           <div className="text-right">
-            <span className="text-[11px] font-mono text-muted-foreground">Required</span>
+            <span className="text-[9px] sm:text-[10px] lg:text-[11px] font-mono text-muted-foreground">Required</span>
             <br />
             <AnimatePresence mode="wait">
               <motion.span
                 key={reqPercent}
-                className="text-xl font-bold font-mono"
+                className="text-sm sm:text-lg lg:text-xl font-bold font-mono"
                 style={{ color: COL_REQUIRED }}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
