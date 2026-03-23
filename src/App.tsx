@@ -8,40 +8,66 @@ import Infrastructure from "./components/sections/Infrastructure";
 import VisibilitySection from "./components/sections/VisibilitySection";
 import DemoSection from "./components/sections/DemoSection";
 import KoreValueSection from "./components/sections/KoreValueSection";
-
 import ServicesSection from "./components/sections/ServicesSection";
 
 function App() {
   return (
     <BrowserRouter>
 
+      {/* GLOBAL BACKGROUND */}
       <GlobalBackground />
 
-      <Navbar />
+      <div className="relative z-10">
 
-      {/* 👇 THIS FIXES YOUR PROBLEM */}
-      <div className="pt-[90px] lg:pt-[133px]">
+        <Navbar />
 
-        <Routes>
+        <div className="pt-[90px] lg:pt-[133px]">
 
-          {/* HOME */}
-          <Route
-            path="/"
-            element={
-              <>
-                <Hero />
-                <Infrastructure />
-                <VisibilitySection />
-                <DemoSection />
-                <KoreValueSection />
-              </>
-            }
-          />
+          <Routes>
 
-          {/* SERVICES */}
-          <Route path="/services" element={<ServicesSection />} />
+            {/* HOME */}
+            <Route
+              path="/"
+              element={
+                <>
+                  <Hero />
 
-        </Routes>
+                  <Infrastructure />
+
+                  {/* 🔥 DIVIDER (ADDED HERE) */}
+                  <div className="w-full flex justify-center">
+                    <div className="w-full max-w-[1400px] h-[1px] bg-gradient-to-r from-transparent via-[#77B900]/40 to-transparent my-[100px]" />
+                  </div>
+
+                  <VisibilitySection />
+
+                  <DemoSection />
+
+                  <KoreValueSection />
+                </>
+              }
+            />
+
+            {/* SERVICES */}
+            <Route
+              path="/services"
+              element={
+                <>
+                  <ServicesSection />
+
+                  {/* ✅ DIVIDER */}
+                  <div className="w-full flex justify-center">
+                    <div className="w-full max-w-[1400px] h-[1px] bg-gradient-to-r from-transparent via-[#77B900]/40 to-transparent my-[100px]" />
+                  </div>
+
+                  <KoreValueSection />
+                </>
+              }
+            />
+
+          </Routes>
+
+        </div>
 
       </div>
 

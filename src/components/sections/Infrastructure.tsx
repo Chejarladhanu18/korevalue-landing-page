@@ -1,64 +1,103 @@
 import content from "../../content/content.json";
+import Graph from "./Graph";
 
 export default function Infrastructure() {
-  const infrastructure = content.infrastructure
+  const cards = content.infrastructure.cards;
+
   return (
-    <section className="w-full overflow-hidden flex justify-center">
+    <section className="w-full flex justify-center px-4 sm:px-6 lg:px-10 py-12 sm:py-16 lg:py-24">
+      <div className="w-full max-w-[1400px]">
 
-      <div className="relative w-[1728px] lg:min-h-[950px] max-lg:w-full max-lg:min-h-[800px]">
+        {cards.map((card, index) => (
+          <div
+            key={index}
+            className="
+              grid grid-cols-1 lg:grid-cols-2
+              items-center
+              gap-8 sm:gap-10 lg:gap-20
+              mb-16 sm:mb-20 lg:mb-32
+            "
+          >
 
-        <div className="max-lg:hidden">
+            {/* 🔹 LEFT CONTENT */}
+            <div className="flex flex-col gap-4 sm:gap-6 lg:gap-8 text-center lg:text-left">
 
-          <div className="absolute left-1/2 -translate-x-1/2 top-[120px] w-[1057px] text-center z-[40]">
-            <h2 className="text-white font-semibold text-[50px] leading-[100%]">
-              {infrastructure.title}
-            </h2>
+              <h3 className="
+                text-white
+                text-[22px] sm:text-[28px] md:text-[40px] lg:text-[56px]
+                font-semibold
+                leading-tight
+              ">
+                {card.title}
+              </h3>
+
+              <p className="
+                text-[#7E7E7E]
+                text-[14px] sm:text-[16px] md:text-[22px] lg:text-[28px]
+                leading-relaxed
+                max-w-full lg:max-w-[600px]
+                mx-auto lg:mx-0
+              ">
+                {card.description}
+              </p>
+
+            </div>
+
+            {/* 🔹 RIGHT CARD */}
+            <div className="flex justify-center lg:justify-end">
+
+              <div className="
+                w-full
+                max-w-[100%] sm:max-w-[500px] lg:max-w-[700px]
+                h-[220px] sm:h-[260px] md:h-[320px] lg:h-[380px]
+                rounded-[30px] sm:rounded-[40px] lg:rounded-[63px]
+                p-[2px]
+                bg-[linear-gradient(135deg,#0F1800,#77B900)]
+              ">
+
+                {/* Card Content */}
+                <div className="
+                  w-full h-full
+                  rounded-[25px] sm:rounded-[30px] lg:rounded-[63px]
+                  bg-[#131814]
+                  p-3 sm:p-4 md:p-6
+                  flex items-center justify-center
+                ">
+
+                  {index === 2 ? (
+                    <Graph />
+                  ) : (
+                    <div className="w-full h-full relative overflow-hidden">
+
+                      {/* 🔥 KEEP EXACT VALUES (unchanged) */}
+                      <img
+                        src={index === 0 ? "/card1.svg" : "/card2.svg"}
+                        alt="card"
+                        className="
+                          absolute
+                          top-[55%]
+                          left-[50%]
+                          translate-x-[-50%]
+                          translate-y-[-50%]
+                          w-[111%]
+                          h-auto
+                          max-w-none
+                        "
+                      />
+
+                    </div>
+                  )}
+
+                </div>
+
+              </div>
+
+            </div>
+
           </div>
-
-          <div className="absolute left-1/2 -translate-x-1/2 top-[210px] w-[1220px] text-center z-[40]">
-            <p className="text-[#7E7E7E] text-[30px] leading-[100%] tracking-[0.05em]">
-              {infrastructure.description}
-            </p>
-          </div>
-
-          <img
-            src="/mockup.png"
-            alt="dashboard mockup"
-            className="absolute w-[1730px] h-[1118px] left-[5px] top-[64px] object-contain z-[10]"
-          />
-
-          <div className="absolute left-1/2 -translate-x-1/2 bottom-[0px] w-[1100px] text-center z-[30]">
-            <p className="text-white text-[22px] leading-[100%] tracking-[0.07em]">
-              {infrastructure.footerText}
-            </p>
-          </div>
-
-        </div>
-
-        <div className="lg:hidden flex flex-col items-center text-center px-6 pt-16">
-
-          <h2 className="text-white font-semibold text-[30px] leading-[120%]">
-            {infrastructure.title}
-          </h2>
-
-          <p className="text-[#7E7E7E] text-[16px] leading-[150%] mt-5">
-            {infrastructure.description}
-          </p>
-
-          <img
-            src="/mockup.png"
-            alt="dashboard mockup"
-            className="w-[120%] mt-40"
-          />
-
-          <p className="text-white text-[14px] leading-[140%] mt-4 px-2">
-            {infrastructure.footerText}
-          </p>
-
-        </div>
+        ))}
 
       </div>
-
     </section>
-  )
+  );
 }

@@ -12,7 +12,7 @@ const ServicesSection = () => {
   const services: Service[] = content.services;
 
   return (
-    <section className="w-full flex justify-center px-4">
+    <section className="w-full flex justify-center px-4 min-h-screen">
 
       <div className="w-full max-w-[1400px]">
 
@@ -24,14 +24,14 @@ const ServicesSection = () => {
           lg:text-[55px] 
           font-semibold 
           text-center 
-          mt-[40px] 
-          mb-[60px]
+          mt-[60px] 
+          mb-[80px]
         ">
           Explore Our Services
         </h2>
 
         {/* ROWS */}
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-8">
 
           {/* ROW 1 */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 place-items-center">
@@ -59,7 +59,7 @@ const ServicesSection = () => {
             ))}
           </div>
 
-          {/* ROW 3 (CENTERED) */}
+          {/* ROW 3 */}
           <div className="flex justify-center gap-6 flex-wrap">
             {services.slice(8, 11).map((item, index) => (
               <ServiceCard
