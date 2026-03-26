@@ -50,7 +50,7 @@ const Navbar = () => {
   const menuOrder = ["Home", "Services", "Resources", "Platform", "Company"];
 
   return (
-    <nav dir="ltr"
+    <nav
       className={`px-4 transition-all duration-300 relative z-[9999] isolate ${
         scrolled ? "sticky top-0" : ""
       }`}
@@ -64,7 +64,7 @@ const Navbar = () => {
       >
         <div className="px-4 md:px-6 lg:px-8 xl:px-6 2xl:px-10 relative">
 
-          <div className="grid grid-cols-3 items-center h-[70px] md:h-[85px] lg:h-[95px] xl:h-[105px]">
+          <div className="flex items-center justfy-between h-[70px] md:h-[85px] lg:h-[95px] x1:h-[105px]">
 
             {/* LEFT */}
             <div className="flex justify-start">
@@ -78,7 +78,7 @@ const Navbar = () => {
             </div>
 
             {/* CENTER */}
-            <div className="hidden lg:flex justify-center">
+            <div className="hidden lg:flex flex-1 justify-center">
               <div className="flex items-center gap-5 md:gap-7 lg:gap-9 xl:gap-12 2xl:gap-14">
 
                 {menuOrder.map((item, index) => {
@@ -215,7 +215,7 @@ const Navbar = () => {
             </div>
 
             {/* RIGHT */}
-            <div className="hidden lg:flex justify-end items-center gap-3 xl:gap-4 pr-4 lg:pr-6 xl:pr-8 ml-6 lg:ml-10 xl:ml-14">
+            <div className="hidden lg:flex  items-center gap-3 xl:gap-4 ml-auto pr-4 lg:pr-6 xl:pr-8">
               <button className="px-3 md:px-4 lg:px-5 xl:px-6 h-[36px] md:h-[40px] lg:h-[44px] flex items-center justify-center leading-none rounded-[11px] border border-[#436900] bg-[#131814] text-[#77B900]">
                 {navbar.buttons.contact}
               </button>
