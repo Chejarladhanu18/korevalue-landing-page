@@ -7,7 +7,8 @@ export default function Infrastructure() {
   const cards = content.infrastructure.cards;
 
   return (
-    <section className="w-full flex justify-center px-4 sm:px-6 lg:px-10 py-12 sm:py-16 lg:py-24">
+    <section className="w-full flex justify-center px-4 sm:px-6 lg:px-10 pt-0 pb-12 sm:pb-16 lg:pb-24 -mt-[140px] sm:-mt-[180px] lg:-mt-[220px]">
+
       <div className="w-full max-w-[1400px]">
 
         {cards.map((card, index) => (
@@ -41,10 +42,7 @@ export default function Infrastructure() {
                 w-full
                 max-w-[100%] sm:max-w-[500px] lg:max-w-[700px]
 
-                /* ❌ REMOVE FIXED HEIGHT */
-                /* h-[220px] sm:h-[260px] md:h-[320px] lg:h-[380px] */
-
-                min-h-[260px] sm:min-h-[300px] md:min-h-[340px] lg:min-h-[400px]
+                min-h-[220px] sm:min-h-[260px] md:min-h-[300px] lg:min-h-[340px]
 
                 rounded-[30px] sm:rounded-[40px] lg:rounded-[63px]
                 p-[2px]
@@ -52,17 +50,12 @@ export default function Infrastructure() {
               ">
 
                 <div className="
-                  w-full h-full
+                  w-full h-auto
                   rounded-[25px] sm:rounded-[30px] lg:rounded-[63px]
                   bg-[#131814]
                   p-3 sm:p-4 md:p-6
-
-                  /* ❌ REMOVE CENTER */
-                  /* flex flex-col justify-center */
-
                   flex flex-col justify-start
-
-                  overflow-visible   /* 🔥 IMPORTANT */
+                  overflow-visible
                 ">
 
                   {/* CHART */}
@@ -86,6 +79,7 @@ export default function Infrastructure() {
         ))}
 
       </div>
+
     </section>
   );
 }

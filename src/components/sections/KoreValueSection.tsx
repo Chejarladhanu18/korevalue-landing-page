@@ -11,9 +11,9 @@ export default function KoreValueSection() {
 
         {/* LOGO */}
         <img
-          src="/KV Logo White 1.png"
+          src="/CtrlS.png"
           alt="logo"
-          className="w-[200px] mb-8"
+          className="w-[147px] h-[64px] mb-8"
         />
 
         {/* GRID */}
@@ -124,12 +124,12 @@ export default function KoreValueSection() {
 
               {/* LOGO */}
               <img
-                src="/KV Logo White 1.png"
+                src="/CtrlS.png"
                 alt="logo"
                 className="absolute"
                 style={{
-                  width: "392px",
-                  height: "73px",
+                  width: "147px",
+                  height: "64px",
                   top: "43px",
                   left: "74px"
                 }}

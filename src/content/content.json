@@ -1,10 +1,56 @@
 {
   "navbar": {
-    "menu": ["Home", "Resource", "Platform", "Services","Company"],
+    "menu": ["Home", "Resource", "Platform", "Services", "Company"],
+
     "buttons": {
       "contact": "Contact Us",
-      "login": "Login"
-    }
+      "getdemo": "Get Demo"
+    },
+
+    "resourcesDropdown": [
+      {
+        "title": "Blog",
+        "desc": "Latest Tech Insights",
+        "path": "/blog"
+      },
+      {
+        "title": "E-Books",
+        "desc": "Download for FinOps eBooks",
+        "path": "/ebooks"
+      },
+      {
+        "title": "Release Notes",
+        "desc": "Releases at KoreValue",
+        "path": "/releases"
+      }
+    ] ,
+
+    "companyDropdown": [
+  {
+    "title": "About Us",
+    "path": "/about"
+  },
+  {
+    "title": "Customers",
+    "path": "/customers"
+  },
+  {
+    "title": "Governance",
+    "path": "/governance"
+  },
+  {
+    "title": "Privacy Policy",
+    "path": "/privacy"
+  },
+  {
+    "title": "Terms of Use",
+    "path": "/terms"
+  },
+  {
+    "title": "Security",
+    "path": "/security"
+  }
+]
   },
 
   "hero": {
@@ -12,7 +58,6 @@
     "description": "Get end-to-end visibility, chargeback, and forecasting across AI, Cloud, SaaS, and on-prem infrastructure to control costs before they grow."
   },
 
-  
   "infrastructure": {
     "cards": [
       {
@@ -170,7 +215,7 @@
       "description": "Set spending limits and get alerts when close to thresholds"
     }
   ],
-     
+
   "koreValue": {
     "services": {
       "title": "Services",
@@ -192,11 +237,7 @@
     },
     "resource": {
       "title": "Resource",
-      "items": [
-        "Blogs",
-        "E-Books",
-        "Release Notes"
-      ]
+      "items": ["Blogs", "E-Books", "Release Notes"]
     },
     "company": {
       "title": "Company",

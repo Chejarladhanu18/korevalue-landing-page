@@ -23,45 +23,43 @@ export default function SpendChart() {
     y: 180 - i * 10
   }));
 
-  const linePath = points
-    .map((p, i) => `${i === 0 ? "M" : "L"} ${p.x} ${p.y}`)
-    .join(" ");
+  // 🔥 SPLIT INDEX (June → July)
+  const splitIndex = 6;
 
-  const areaPath = `
-    ${linePath}
-    L ${points[points.length - 1].x} 180
-    L ${points[0].x} 180
+  const leftPoints = points.slice(0, splitIndex);
+  const rightPoints = points.slice(splitIndex - 1);
+
+  const buildPath = (pts: any[]) =>
+    pts.map((p, i) => `${i === 0 ? "M" : "L"} ${p.x} ${p.y}`).join(" ");
+
+  const buildArea = (pts: any[]) => `
+    ${buildPath(pts)}
+    L ${pts[pts.length - 1].x} 180
+    L ${pts[0].x} 180
     Z
   `;
+
+  const linePath = buildPath(points);
 
   return (
     <div className="w-full h-full flex flex-col justify-between">
 
       {/* TITLE */}
       <div>
-        <div className="text-white text-xs sm:text-sm md:text-base font-medium">
+        <div className="text-white text-sm font-medium">
           Spend Over Time
         </div>
-        <div className="text-[10px] sm:text-xs text-gray-400 mt-1">
+        <div className="text-xs text-gray-400 mt-1">
           Current Time
         </div>
       </div>
 
       {/* CHART */}
-      <div className="flex-1 rounded-2xl bg-[#020806] px-3 sm:px-4 py-3 flex flex-col justify-between">
+      <div className="flex-1 rounded-2xl bg-[#020806] px-4 py-3 flex flex-col justify-between">
 
-        <svg
-          viewBox="0 0 520 200"
-          className="w-full h-[110px] sm:h-[140px] md:h-full"
-        >
+        <svg viewBox="0 0 520 200" className="w-full h-full">
 
           <defs>
-            <linearGradient id="areaGradient" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%" stopColor="#1e3a8a" stopOpacity="0.25" />
-              <stop offset="50%" stopColor="#134e4a" stopOpacity="0.25" />
-              <stop offset="100%" stopColor="#052e16" stopOpacity="0.35" />
-            </linearGradient>
-
             <clipPath id="clip">
               <motion.rect
                 key={key}
@@ -76,7 +74,7 @@ export default function SpendChart() {
           </defs>
 
           {/* AXIS */}
-          <g stroke="#6b7280" strokeWidth="1">
+          <g stroke="#14532d" strokeWidth="1">
             <line x1={chartStart} y1="20" x2={chartStart} y2="180" />
             <line x1={chartStart} y1="180" x2={chartEnd} y2="180" />
           </g>
@@ -85,89 +83,77 @@ export default function SpendChart() {
           {[0,50,100,150,200].map((v,i)=>{
             const y = 180 - (v/200)*160;
             return (
-              <text
-                key={i}
-                x="8"
-                y={y+4}
-                className="text-[8px] sm:text-[10px]"
-                fill="#9ca3af"
-              >
+              <text key={i} x="8" y={y+4} fill="#9ca3af" className="text-[10px]">
                 ${v}M
               </text>
             );
           })}
 
-          {/* AREA */}
+          {/* 🔵 LEFT AREA (Actual) */}
           <path
-            d={areaPath}
-            fill="url(#areaGradient)"
+            d={buildArea(leftPoints)}
+            fill="#0f3d3e"
+            opacity="0.7"
             clipPath="url(#clip)"
           />
 
-          {/* LINE */}
+          {/* 🟢 RIGHT AREA (Estimate) */}
+          <path
+            d={buildArea(rightPoints)}
+            fill="#065f46"
+            opacity="0.8"
+            clipPath="url(#clip)"
+          />
+
+          {/* 🔥 FORECAST LINE */}
           <motion.path
             key={key+"-line"}
             d={linePath}
             fill="none"
             stroke="#84cc16"
-            strokeWidth="2"
-            className="sm:stroke-[2.5]"
+            strokeWidth="2.5"
             initial={{ pathLength: 0 }}
             animate={{ pathLength: 1 }}
-            transition={{ duration: 2, ease: "easeOut" }}
+            transition={{ duration: 2 }}
           />
 
         </svg>
 
         {/* MONTHS */}
-        <div className="mt-2">
-          <div className="relative h-[28px] sm:h-[34px]">
-
-            {points.map((p, i) => (
-              <div
-                key={i}
-                style={{
-                  position: "absolute",
-                  left: `${(p.x / 520) * 100}%`,
-                  transform: "translateX(-50%)",
-                }}
-                className="text-center leading-tight"
-              >
-                <div className="text-[8px] sm:text-[11px] text-gray-300">
-                  {months[i]}
-                </div>
-                <div className="text-[7px] sm:text-[10px] text-gray-500">
-                  FY26
-                </div>
-              </div>
-            ))}
-
-          </div>
+        <div className="mt-2 relative h-[30px]">
+          {points.map((p, i) => (
+            <div
+              key={i}
+              style={{
+                position: "absolute",
+                left: `${(p.x / 520) * 100}%`,
+                transform: "translateX(-50%)",
+              }}
+              className="text-center"
+            >
+              <div className="text-[11px] text-gray-300">{months[i]}</div>
+              <div className="text-[10px] text-gray-500">FY26</div>
+            </div>
+          ))}
         </div>
 
       </div>
 
       {/* LEGEND */}
-      <div className="
-        flex flex-wrap justify-center items-center
-        gap-3 sm:gap-6
-        mt-3 sm:mt-4
-        text-[9px] sm:text-[11px]
-        text-gray-400
-      ">
+      <div className="flex justify-center gap-6 mt-4 text-[11px] text-gray-400">
 
-        <div className="flex items-center gap-1 sm:gap-2">
-          <div className="w-2 h-2 bg-[#1e3a8a]" />
+        <div className="flex items-center gap-2">
+          <div className="w-2 h-2 bg-[#0f3d3e]" />
           <span>Actual</span>
         </div>
 
-        <div className="flex items-center gap-1 sm:gap-2">
-          <div className="w-2 h-2 bg-[#134e4a]" />
+        <div className="flex items-center gap-2">
+          <div className="w-2 h-2 bg-[#065f46]" />
           <span>Estimate</span>
         </div>
 
-        <div className="flex items-center gap-1 sm:gap-2">
-          <div className="w-4 sm:w-5 h-[2px] bg-[#84cc16]" />
+        <div className="flex items-center gap-2">
+          <div className="w-5 h-[2px] bg-[#84cc16]" />
           <span>Forecast</span>
         </div>
 

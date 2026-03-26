@@ -14,58 +14,54 @@ function App() {
   return (
     <BrowserRouter>
 
-      {/* GLOBAL BACKGROUND */}
-      <GlobalBackground />
+      <div className="relative min-h-screen">
 
-      <div className="relative z-10">
+        {/* BACKGROUND */}
+        <GlobalBackground />
 
-        <Navbar />
+        {/* CONTENT */}
+        <div className="relative z-10">
 
-        <div className="pt-[90px] lg:pt-[133px]">
+          <Navbar />
 
-          <Routes>
+          <main>
+            <Routes>
 
-            {/* HOME */}
-            <Route
-              path="/"
-              element={
-                <>
-                  <Hero />
+              <Route
+                path="/"
+                element={
+                  <>
+                    <Hero />
+                    <Infrastructure />
 
-                  <Infrastructure />
+                    <div className="w-full flex justify-center">
+                      <div className="w-full max-w-[1400px] h-[1px] bg-gradient-to-r from-transparent via-[#77B900]/40 to-transparent my-[100px]" />
+                    </div>
 
-                  {/* 🔥 DIVIDER (ADDED HERE) */}
-                  <div className="w-full flex justify-center">
-                    <div className="w-full max-w-[1400px] h-[1px] bg-gradient-to-r from-transparent via-[#77B900]/40 to-transparent my-[100px]" />
-                  </div>
+                    <VisibilitySection />
+                    <DemoSection />
+                    <KoreValueSection />
+                  </>
+                }
+              />
 
-                  <VisibilitySection />
+              <Route
+                path="/services"
+                element={
+                  <>
+                    <ServicesSection />
 
-                  <DemoSection />
+                    <div className="w-full flex justify-center">
+                      <div className="w-full max-w-[1400px] h-[1px] bg-gradient-to-r from-transparent via-[#77B900]/40 to-transparent my-[100px]" />
+                    </div>
 
-                  <KoreValueSection />
-                </>
-              }
-            />
+                    <KoreValueSection />
+                  </>
+                }
+              />
 
-            {/* SERVICES */}
-            <Route
-              path="/services"
-              element={
-                <>
-                  <ServicesSection />
-
-                  {/* ✅ DIVIDER */}
-                  <div className="w-full flex justify-center">
-                    <div className="w-full max-w-[1400px] h-[1px] bg-gradient-to-r from-transparent via-[#77B900]/40 to-transparent my-[100px]" />
-                  </div>
-
-                  <KoreValueSection />
-                </>
-              }
-            />
-
-          </Routes>
+            </Routes>
+          </main>
 
         </div>
 
