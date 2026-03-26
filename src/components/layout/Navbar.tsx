@@ -79,7 +79,7 @@ const Navbar = () => {
 
             {/* CENTER */}
             <div className="hidden lg:flex justify-center">
-              <div className="flex items-center gap-4 md:gap-6 lg:gap-8 xl:gap-10 2xl:gap-12">
+              <div className="flex items-center gap-5 md:gap-7 lg:gap-9 xl:gap-12 2xl:gap-14">
 
                 {menuOrder.map((item, index) => {
                   const path = getPath(item);
@@ -215,7 +215,7 @@ const Navbar = () => {
             </div>
 
             {/* RIGHT */}
-            <div className="hidden lg:flex justify-end items-center gap-3 xl:gap-4 pr-4 lg:pr-6 xl:pr-8">
+            <div className="hidden lg:flex justify-end items-center gap-3 xl:gap-4 pr-4 lg:pr-6 xl:pr-8 ml-6 lg:ml-10 xl:ml-14">
               <button className="px-3 md:px-4 lg:px-5 xl:px-6 h-[36px] md:h-[40px] lg:h-[44px] flex items-center justify-center leading-none rounded-[11px] border border-[#436900] bg-[#131814] text-[#77B900]">
                 {navbar.buttons.contact}
               </button>
