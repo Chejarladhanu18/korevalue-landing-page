@@ -10,7 +10,11 @@ const Navbar = () => {
   const [showPlatform, setShowPlatform] = useState(false);
   const [showCompany, setShowCompany] = useState(false);
   const [showGetStarted, setShowGetStarted] = useState(false);
- const timeoutRef = useRef<number | null>(null);
+  const timeoutRef = useRef<number | null>(null);
+  const resourcesTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const platformTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const companyTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
+
 
   const [mobileResourcesOpen, setMobileResourcesOpen] = useState(false);
   const [mobilePlatformOpen, setMobilePlatformOpen] = useState(false);
@@ -112,104 +116,177 @@ const Navbar = () => {
                     </div>
                   );
 
-                  if (item === "Resources") {
-                    return (
-                      <div
-                        key={index}
-                        className="relative"
-                        onMouseEnter={() => setShowResources(true)}
-                        onMouseLeave={() => setShowResources(false)}
-                      >
-                        {MenuItem}
+                 if (item === "Resources") {
+  return (
+    <div
+      key={index}
+      className="relative"
+      onMouseEnter={() => {
+        if (resourcesTimeout.current) clearTimeout(resourcesTimeout.current);
+        setShowResources(true);
+      }}
+      onMouseLeave={() => {
+        resourcesTimeout.current = setTimeout(() => {
+          setShowResources(false);
+        }, 300);
+      }}
+    >
+      {MenuItem}
 
-                        {showResources && (
-                          <div className="absolute top-full mt-3 left-1/2 -translate-x-1/2 z-50">
-                            <div className="p-[2px] rounded-[22px] bg-gradient-to-br from-[#0F1800] to-[#77B900] shadow-[0_0_30px_rgba(119,185,0,0.25)]">
-                              <div className="w-[90vw] max-w-[550px] lg:max-w-[600px] min-h-[270px] bg-[#0F1800]/95 backdrop-blur-xl rounded-[20px] px-8 py-7">
-                                <div className="grid grid-cols-2 gap-y-10 gap-x-16">
-                                  {resources.map((res, i) => (
-                                    <Link key={i} to={res.path}>
-                                      <div className="group cursor-pointer p-3 rounded-xl transition-all duration-300 hover:bg-gradient-to-br hover:from-[#77B900]/10 hover:shadow-[0_0_20px_rgba(119,185,0,0.15)]">
-                                        <p className="text-[#9fdc00] font-semibold text-[18px] group-hover:text-[#baff2a]">
-                                          {res.title}
-                                        </p>
-                                        <p className="text-[14px] text-white/60 mt-1 group-hover:text-white/80">
-                                          {res.desc}
-                                        </p>
-                                      </div>
-                                    </Link>
-                                  ))}
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        )}
-                      </div>
-                    );
-                  }
+      {showResources && (
+        <div
+          className="absolute top-full mt-3 left-1/2 -translate-x-1/2 z-50"
+          onMouseEnter={() => {
+            if (resourcesTimeout.current) clearTimeout(resourcesTimeout.current);
+          }}
+          onMouseLeave={() => {
+            resourcesTimeout.current = setTimeout(() => {
+              setShowResources(false);
+            }, 300);
+          }}
+        >
+          <div className="p-[2px] rounded-[22px] bg-gradient-to-br from-[#0F1800] to-[#77B900] shadow-[0_0_30px_rgba(119,185,0,0.25)]">
+            
+            <div className="w-[90vw] max-w-[550px] lg:max-w-[600px] min-h-[270px] bg-[#0F1800]/95 backdrop-blur-xl rounded-[20px] px-8 py-7">
+              
+              <div className="grid grid-cols-2 gap-y-10 gap-x-16">
+                {resources.map((res, i) => (
+                  <Link key={i} to={res.path}>
+                    <div className="group cursor-pointer p-3 rounded-xl transition-all duration-300 hover:bg-gradient-to-br hover:from-[#77B900]/10 hover:shadow-[0_0_20px_rgba(119,185,0,0.15)]">
+                      
+                      <p className="text-[#9fdc00] font-semibold text-[18px] group-hover:text-[#baff2a]">
+                        {res.title}
+                      </p>
+
+                      <p className="text-[14px] text-white/60 mt-1 group-hover:text-white/80">
+                        {res.desc}
+                      </p>
+
+                    </div>
+                  </Link>
+                ))}
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
 
                   if (item === "Platform") {
-                    return (
-                      <div
-                        key={index}
-                        className="relative"
-                        onMouseEnter={() => setShowPlatform(true)}
-                        onMouseLeave={() => setShowPlatform(false)}
-                      >
-                        {MenuItem}
+  return (
+    <div
+      key={index}
+      className="relative"
+      onMouseEnter={() => {
+        if (platformTimeout.current) clearTimeout(platformTimeout.current);
+        setShowPlatform(true);
+      }}
+      onMouseLeave={() => {
+        platformTimeout.current = setTimeout(() => {
+          setShowPlatform(false);
+        }, 300);
+      }}
+    >
+      {MenuItem}
 
-                        {showPlatform && (
-                          <div className="absolute top-full mt-3 left-1/2 -translate-x-1/2 z-50">
-                            <div className="p-[2px] rounded-[22px] bg-gradient-to-br from-[#0F1800] to-[#77B900] shadow-[0_0_30px_rgba(119,185,0,0.25)]">
-                              <div className="w-[220px] md:w-[260px] lg:w-[300px] bg-[#0F1800]/95 backdrop-blur-xl rounded-[20px] p-4">
-                                <div className="flex flex-col gap-2">
-                                  {platformItems.map((p, i) => (
-                                    <div
-                                      key={i}
-                                      className="px-3 py-2 rounded-lg cursor-pointer text-white/80 hover:text-[#9fdc00] transition-all duration-300 hover:bg-gradient-to-br hover:from-[#77B900]/10 hover:shadow-[0_0_15px_rgba(119,185,0,0.15)]"
-                                    >
-                                      {p}
-                                    </div>
-                                  ))}
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        )}
-                      </div>
-                    );
-                  }
+      {showPlatform && (
+        <div
+          className="absolute top-full mt-3 left-1/2 -translate-x-1/2 z-50"
+          onMouseEnter={() => {
+            if (platformTimeout.current) clearTimeout(platformTimeout.current);
+          }}
+          onMouseLeave={() => {
+            platformTimeout.current = setTimeout(() => {
+              setShowPlatform(false);
+            }, 300);
+          }}
+        >
+          <div className="p-[2px] rounded-[22px] bg-gradient-to-br from-[#0F1800] to-[#77B900] shadow-[0_0_30px_rgba(119,185,0,0.25)]">
+            
+            <div className="w-[200px] md:w-[230px] lg:w-[260px] bg-[#0F1800]/95 backdrop-blur-xl rounded-[20px] p-4">
+              
+              <div className="flex flex-col gap-2">
+                {platformItems.map((p, i) => (
+                  <div
+                    key={i}
+                    className="px-3 py-2 rounded-lg cursor-pointer text-white/80 hover:text-[#9fdc00] transition-all duration-300 hover:bg-[#77B900]/10"
+                  >
+                    {p}
+                  </div>
+                ))}
+              </div>
 
-                  if (item === "Company") {
-                    return (
-                      <div
-                        key={index}
-                        className="relative"
-                        onMouseEnter={() => setShowCompany(true)}
-                        onMouseLeave={() => setShowCompany(false)}
-                      >
-                        {MenuItem}
+            </div>
 
-                        {showCompany && (
-                          <div className="absolute top-full mt-3 left-1/2 -translate-x-1/2 z-50">
-                            <div className="p-[2px] rounded-[22px] bg-gradient-to-br from-[#0F1800] to-[#77B900] shadow-[0_0_30px_rgba(119,185,0,0.25)]">
-                              <div className="w-[200px] md:w-[230px] lg:w-[260px] bg-[#0F1800]/95 backdrop-blur-xl rounded-[20px] p-4">
-                                <div className="flex flex-col gap-2">
-                                  {companyItems.map((c, i) => (
-                                    <Link key={i} to={c.path}>
-                                      <div className="px-3 py-2 rounded-lg cursor-pointer text-white/80 hover:text-[#9fdc00] transition-all duration-300 hover:bg-gradient-to-br hover:from-[#77B900]/10 hover:shadow-[0_0_15px_rgba(119,185,0,0.15)]">
-                                        {c.title}
-                                      </div>
-                                    </Link>
-                                  ))}
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        )}
-                      </div>
-                    );
-                  }
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+                 if (item === "Company") {
+  return (
+    <div
+      key={index}
+      className="relative"
+      onMouseEnter={() => {
+        if (companyTimeout.current) clearTimeout(companyTimeout.current);
+        setShowCompany(true);
+      }}
+      onMouseLeave={() => {
+        companyTimeout.current = setTimeout(() => {
+          setShowCompany(false);
+        }, 300);
+      }}
+    >
+      {MenuItem}
+
+      {showCompany && (
+        <div
+          className="absolute top-full mt-3 left-1/2 -translate-x-1/2 z-50"
+          onMouseEnter={() => {
+            if (companyTimeout.current) clearTimeout(companyTimeout.current);
+          }}
+          onMouseLeave={() => {
+            companyTimeout.current = setTimeout(() => {
+              setShowCompany(false);
+            }, 300);
+          }}
+        >
+          <div className="p-[2px] rounded-[22px] bg-gradient-to-br from-[#0F1800] to-[#77B900] shadow-[0_0_30px_rgba(119,185,0,0.25)]">
+            
+            <div className="w-[200px] md:w-[230px] lg:w-[260px] bg-[#0F1800]/95 backdrop-blur-xl rounded-[20px] p-4">
+              
+              <div className="flex flex-col gap-2">
+                {companyItems.map((c, i) => (
+                  <Link key={i} to={c.path}>
+                    <div
+                      className="
+                        px-3 py-2 rounded-lg cursor-pointer
+                        text-white/80 hover:text-[#9fdc00]
+                        transition-all duration-300
+                        hover:bg-[#77B900]/10
+                      "
+                    >
+                      {c.title}
+                    </div>
+                  </Link>
+                ))}
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
 
                   return (
                     <Link key={index} to={path}>
