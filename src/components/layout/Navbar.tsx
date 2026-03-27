@@ -176,7 +176,7 @@ const Navbar = () => {
   );
 }
 
-                  if (item === "Platform") {
+                 if (item === "Platform") {
   return (
     <div
       key={index}
@@ -205,15 +205,36 @@ const Navbar = () => {
             }, 300);
           }}
         >
-          <div className="p-[2px] rounded-[22px] bg-gradient-to-br from-[#0F1800] to-[#77B900] shadow-[0_0_30px_rgba(119,185,0,0.25)]">
+          {/* OUTER GLOW */}
+          <div className="p-[2px] rounded-[24px] bg-gradient-to-br from-[#0F1800] to-[#77B900] shadow-[0_0_40px_rgba(119,185,0,0.25)]">
             
-            <div className="w-[200px] md:w-[230px] lg:w-[260px] bg-[#0F1800]/95 backdrop-blur-xl rounded-[20px] p-4">
+            {/* RESPONSIVE BOX */}
+            <div
+              className="
+                min-w-[320px]
+                max-w-[90vw]
+                lg:min-w-[360px]
+                xl:min-w-[400px]
+                2xl:min-w-[440px]
+                bg-[#0F1800]/95
+                backdrop-blur-xl
+                rounded-[22px]
+                px-5 lg:px-6
+                py-5 lg:py-6
+              "
+            >
               
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-3 lg:gap-4">
                 {platformItems.map((p, i) => (
                   <div
                     key={i}
-                    className="px-3 py-2 rounded-lg cursor-pointer text-white/80 hover:text-[#9fdc00] transition-all duration-300 hover:bg-[#77B900]/10"
+                    className="
+                      px-4 py-2 rounded-lg cursor-pointer
+                      text-white/80
+                      whitespace-nowrap
+                      transition-all duration-300
+                      hover:bg-[#77B900]/15
+                    "
                   >
                     {p}
                   </div>
@@ -228,7 +249,6 @@ const Navbar = () => {
     </div>
   );
 }
-
                  if (item === "Company") {
   return (
     <div
