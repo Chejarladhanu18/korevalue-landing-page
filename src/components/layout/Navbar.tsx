@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import content from "../../content/content.json";
 import { Link, useLocation } from "react-router-dom";
+
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -8,10 +9,13 @@ const Navbar = () => {
   const [showResources, setShowResources] = useState(false);
   const [showPlatform, setShowPlatform] = useState(false);
   const [showCompany, setShowCompany] = useState(false);
+  const [showGetStarted, setShowGetStarted] = useState(false);
+ const timeoutRef = useRef<number | null>(null);
 
   const [mobileResourcesOpen, setMobileResourcesOpen] = useState(false);
   const [mobilePlatformOpen, setMobilePlatformOpen] = useState(false);
   const [mobileCompanyOpen, setMobileCompanyOpen] = useState(false);
+  const [mobileGetStartedOpen, setMobileGetStartedOpen] = useState(false);
 
   const location = useLocation();
   const navbar = content.navbar;
@@ -42,16 +46,19 @@ const Navbar = () => {
         return "/resources";
       case "company":
         return "/company";
+      case "pricing":
+        return "/pricing";
       default:
         return "/";
+      
     }
   };
 
-  const menuOrder = ["Home", "Services", "Resources", "Platform", "Company"];
+  const menuOrder = ["Home", "Services", "Resources", "Platform", "Company","Pricing"];
 
   return (
     <nav
-      className={`px-4 transition-all duration-300 relative z-[9999] isolate ${
+      className={`px-4 transition-all duration-500 relative z-[9999] isolate ${
         scrolled ? "sticky top-0" : ""
       }`}
     >
@@ -214,16 +221,74 @@ const Navbar = () => {
               </div>
             </div>
 
+            
             {/* RIGHT */}
-            <div className="hidden lg:flex  items-center gap-3 xl:gap-4 ml-auto pr-4 lg:pr-6 xl:pr-8">
-              <button className="px-3 md:px-4 lg:px-5 xl:px-6 h-[36px] md:h-[40px] lg:h-[44px] flex items-center justify-center leading-none rounded-[11px] border border-[#436900] bg-[#131814] text-[#77B900]">
-                {navbar.buttons.contact}
-              </button>
+<div className="hidden lg:flex items-center gap-3 xl:gap-4 ml-auto pr-4 lg:pr-6 xl:pr-8">
+  
+  
+    <div
+  className="relative"
+  onMouseEnter={() => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    setShowGetStarted(true);
+  }}
+  onMouseLeave={() => {
+    timeoutRef.current = setTimeout(() => {
+      setShowGetStarted(false);
+    }, 300); //
+  }}
+>
 
-              <button className="px-3 md:px-4 lg:px-5 xl:px-6 h-[36px] md:h-[40px] lg:h-[44px] flex items-center justify-center leading-none rounded-[11px] bg-[#77B900] text-black">
-                {navbar.buttons.getdemo}
-              </button>
-            </div>
+    {/* BUTTON */}
+    <button className="w-[170px] px-4 py-2 rounded-[12px] bg-[#77B900] text-black flex items-center justify-center gap-2">
+      Get Started
+      <span className={`transition-transform ${showGetStarted ? "rotate-180" : ""}`}>
+        ⌄
+      </span>
+    </button>
+
+    {/* DROPDOWN */}
+    {showGetStarted && (
+      <div className="absolute top-full mt-2 left-1/2 -translate-x-1/2 z-50">
+
+        {/* OUTER BORDER */}
+        <div className="p-[1.5px] rounded-[16px] bg-gradient-to-br from-[#77B900] to-[#0F1800] shadow-[0_0_30px_rgba(119,185,0,0.4)]">
+
+          {/* INNER BOX */}
+          <div className="bg-[#0F1800] rounded-[14px] py-3 flex flex-col gap-3 w-[170px]">
+
+            <Link to="/signin">
+              <div className="mx-3 border border-[#436900] text-[#77B900] text-center py-2 rounded-[10px] hover:bg-[#77B900]/10 transition">
+                Sign in
+              </div>
+            </Link>
+
+            <Link to="/signup">
+              <div className="mx-3 border border-[#436900] text-[#77B900] text-center py-2 rounded-[10px] hover:bg-[#77B900]/10 transition">
+                Sign up
+              </div>
+            </Link>
+
+            <Link to="/demo">
+              <div className="mx-3 border border-[#436900] text-[#77B900] text-center py-2 rounded-[10px] hover:bg-[#77B900]/10 transition">
+                Get Demo
+              </div>
+            </Link>
+
+            <Link to="/contact">
+              <div className="mx-3 border border-[#436900] text-[#77B900] text-center py-2 rounded-[10px] hover:bg-[#77B900]/10 transition">
+                Connect Us
+              </div>
+            </Link>
+
+          </div>
+        </div>
+
+      </div>
+    )}
+  </div>
+
+</div>
 
             {/* MOBILE ICON */}
             <div className="lg:hidden absolute right-2 top-1/2 -translate-y-1/2">
@@ -333,16 +398,65 @@ const Navbar = () => {
             })}
 
             <div className="flex flex-col gap-3 mt-4">
-              <button className="h-[40px] rounded-[11px] border border-[#436900] text-[#77B900]">
-                {navbar.buttons.contact}
-              </button>
+             
+             
 
-              <button className="h-[40px] rounded-[11px] bg-[#77B900] text-black">
-                {navbar.buttons.getdemo}
-              </button>
+  {/* GET STARTED BUTTON */}
+  <button
+    onClick={() => setMobileGetStartedOpen(!mobileGetStartedOpen)}
+    className="h-[40px] rounded-[12px] bg-[#77B900] text-black flex justify-between items-center px-4"
+  >
+    Get Started
+    <span className={`transition-transform ${mobileGetStartedOpen ? "rotate-180" : ""}`}>
+      ⌄
+    </span>
+  </button>
+
+  {/* DROPDOWN */}
+  {mobileGetStartedOpen && (
+    <div className="mt-2">
+
+      {/* GLOW BORDER */}
+      <div className="p-[1.5px] rounded-[16px] bg-gradient-to-br from-[#77B900] to-[#0F1800] shadow-[0_0_20px_rgba(119,185,0,0.35)]">
+
+        {/* INNER BOX */}
+        <div className="bg-[#0F1800] rounded-[14px] px-4 py-3 flex flex-col gap-3">
+
+          <Link to="/signin">
+            <div className="border border-[#436900] text-[#77B900] text-center py-2 rounded-[10px] hover:bg-[#77B900]/10 transition">
+              Sign in
+            </div>
+          </Link>
+
+          <Link to="/signup">
+            <div className="border border-[#436900] text-[#77B900] text-center py-2 rounded-[10px] hover:bg-[#77B900]/10 transition">
+              Sign up
+            </div>
+          </Link>
+
+          <Link to="/demo">
+            <div className="border border-[#436900] text-[#77B900] text-center py-2 rounded-[10px] hover:bg-[#77B900]/10 transition">
+              Get Demo
+            </div>
+          </Link>
+
+          <Link to="/contact">
+            <div className="border border-[#436900] text-[#77B900] text-center py-2 rounded-[10px] hover:bg-[#77B900]/10 transition">
+              Connect Us
+            </div>
+          </Link>
+
+        </div>
+      </div>
+
+    </div>
+  )}
+
+</div>
+ 
             </div>
 
-          </div>
+          
         )}
       </div>
     </nav>

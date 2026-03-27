@@ -1,6 +1,7 @@
 {
   "navbar": {
-    "menu": ["Home", "Resource", "Platform", "Services", "Company"],
+    "menu": ["Home", "Resource", "Platform", "Services", "Company","Get Started" ],
+
 
     "buttons": {
       "contact": "Contact Us",
@@ -102,7 +103,7 @@
       {
         "icon": "/shared-icon.png",
         "title": "Handle Complex Shared Resources",
-        "description": "Allocate costs across Kubernetes clusters, shared databases, and multi-tenant infrastructure effortlessly with KoreValue’s intelligent allocation engine."
+        "description": "Allocate costs across Kubernetes clusters, shared databases, and multi-tenant infrastructure effortlessly with CtrlS intelligent allocation engine."
       },
       {
         "icon": "/cloud.png",
@@ -143,8 +144,8 @@
 
   "footer": {
     "tagline": "A cost optimization platform designed for managing AI and Hybrid Infrastructure expenses.",
-    "description": "KoreValue is an AI-powered FinOps platform designed to help organizations monitor, analyze, and optimize their cloud spending. With real-time cost intelligence, anomaly detection, and multi-cloud insights, we enable teams to make smarter financial decisions and maximize the value of their cloud infrastructure.",
-    "copyright": "© 2026 KoreValue AI-Powered Cloud Intelligence Platform"
+    "description": "CtrlS is an AI-powered FinOps platform designed to help organizations monitor, analyze, and optimize their cloud spending. With real-time cost intelligence, anomaly detection, and multi-cloud insights, we enable teams to make smarter financial decisions and maximize the value of their cloud infrastructure.",
+    "copyright": "© 2026 CtrlS AI-Powered Cloud Intelligence Platform"
   },
 
   "services": [
@@ -263,6 +264,6 @@
       ]
     },
     "followText": "Follow us on",
-    "copyright": "© 2026 KoreValue AI-Powered Cloud Intelligence Platform"
+    "copyright": "© 2026 CtrlS AI-Powered Cloud Intelligence Platform"
   }
 }

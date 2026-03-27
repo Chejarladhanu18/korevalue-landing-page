@@ -118,7 +118,7 @@ export default function KubexChart(){
         <div className="flex items-center gap-2">
           <div className="w-2.5 h-2.5 bg-[#84CC16] rounded-full shadow-[0_0_10px_#84CC16]" />
           <span className="font-mono text-xs sm:text-lg font-semibold">
-            KoreValue
+            CtrlS
           </span>
         </div>
 
@@ -137,12 +137,12 @@ export default function KubexChart(){
         {showDivider && (
           <motion.div
             className="absolute text-[10px] sm:text-xs text-[#84CC16] font-mono -translate-x-1/2"
-            style={{ left: `${(dividerX / W) * 100}%`, top: "-6px" }}
+            style={{ left: `${(dividerX / W) * 103}%`, top: "-6px" }}
             initial={{ opacity: 0, y: -6 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
           >
-            KoreValue
+            CtrlS
           </motion.div>
         )}
 
