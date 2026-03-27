@@ -11,7 +11,7 @@ export default function KoreValueSection() {
 
         {/* LOGO */}
         <img
-          src="/CtrlS.png"
+          src="/Footerctrls.png"
           alt="logo"
           className="w-[147px] h-[64px] mb-8"
         />
@@ -124,7 +124,7 @@ export default function KoreValueSection() {
 
               {/* LOGO */}
               <img
-                src="/CtrlS.png"
+                src="/Footerctrls.png"
                 alt="logo"
                 className="absolute"
                 style={{
