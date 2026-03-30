@@ -337,11 +337,33 @@ const Navbar = () => {
 >
 
     {/* BUTTON */}
-    <button className="w-[170px] px-4 py-2 rounded-[12px] bg-[#77B900] text-black flex items-center justify-center gap-2">
-      Get Started
-      <span className={`transition-transform ${showGetStarted ? "rotate-180" : ""}`}>
-        ⌄
-      </span>
+    <button  className="
+    px-5 py-2
+    rounded-[12px]
+    bg-[#77B900]
+    text-black
+    flex items-center justify-center gap-2
+    font-medium
+    min-w-[150px]
+  "
+>
+  <span>Get Started</span>
+
+  <span
+    className={`transition-transform duration-300 flex items-center ${
+      showGetStarted ? "rotate-180" : ""
+    }`}
+  >
+    <svg
+      className="w-4 h-4"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.5"
+      viewBox="0 0 24 24"
+    >
+      <path d="M6 9l6 6 6-6" />
+    </svg>
+  </span>
     </button>
 
     {/* DROPDOWN */}
@@ -374,7 +396,7 @@ const Navbar = () => {
 
             <Link to="/contact">
               <div className="mx-3 border border-[#436900] text-[#77B900] text-center py-2 rounded-[10px] hover:bg-[#77B900]/10 transition">
-                Connect Us
+                Contact us
               </div>
             </Link>
 
@@ -501,12 +523,38 @@ const Navbar = () => {
   {/* GET STARTED BUTTON */}
   <button
     onClick={() => setMobileGetStartedOpen(!mobileGetStartedOpen)}
-    className="h-[40px] rounded-[12px] bg-[#77B900] text-black flex justify-between items-center px-4"
+  className="
+    w-[180px]
+    mx-auto
+    h-[42px]
+    rounded-[12px]
+    bg-[#77B900]
+    text-black
+    flex items-center justify-center gap-2
+    font-medium
+    border-none
+    outline-none
+    focus:outline-none
+    focus:ring-0
+  "
+>
+  <span>Get Started</span>
+
+  <span
+    className={`transition-transform duration-300 flex items-center ${
+      mobileGetStartedOpen ? "rotate-180" : ""
+    }`}
   >
-    Get Started
-    <span className={`transition-transform ${mobileGetStartedOpen ? "rotate-180" : ""}`}>
-      ⌄
-    </span>
+    <svg
+      className="w-4 h-4"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.5"
+      viewBox="0 0 24 24"
+    >
+      <path d="M6 9l6 6 6-6" />
+    </svg>
+  </span>
   </button>
 
   {/* DROPDOWN */}
@@ -539,7 +587,7 @@ const Navbar = () => {
 
           <Link to="/contact">
             <div className="border border-[#436900] text-[#77B900] text-center py-2 rounded-[10px] hover:bg-[#77B900]/10 transition">
-              Connect Us
+              Contact us
             </div>
           </Link>
 
